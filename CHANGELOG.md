@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/orikalk/palette/compare/v0.2.0...v0.2.1) (2026-08-23)
+
+
+### Documentation
+
+* point changelog at rewritten commits ([7e964e2](https://github.com/orikalk/palette/commit/7e964e2eefab122af59723ac2514d2a3e9ad712a))
+
 ## [0.2.0](https://github.com/orikalk/palette/compare/v0.1.0...v0.2.0) (2026-08-23)
 
 
