@@ -9,12 +9,12 @@
 
 ### Features
 
-* group palette into themes with dark and light modes ([3b711d0](https://github.com/orikalk/palette/commit/3b711d0dcd42fe62cb8d3ed271fa870bbce5a50b))
+* group palette into themes with dark and light modes ([9365997](https://github.com/orikalk/palette/commit/93659976a050385acd32622946268bcca8a9fda9))
 
 
 ### Documentation
 
-* rewrite readme ([e2b6131](https://github.com/orikalk/palette/commit/e2b61316991b46aeed3e2a882026c4a12eb9bf48))
+* rewrite readme ([e0d3fa2](https://github.com/orikalk/palette/commit/e0d3fa2158ec72a07594b2139e0de391164a4dde))
 
 ## 0.1.0 (2026-08-23)
 
