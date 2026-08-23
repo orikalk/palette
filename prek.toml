@@ -45,6 +45,7 @@ name = "rumdl"
 language = "system"
 entry = "uv run rumdl check --fix"
 types = ["markdown"]
+exclude = "CHANGELOG\\.md$"
 
 [[repos.hooks]]
 id = "commitizen"
