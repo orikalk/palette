@@ -1,0 +1,53 @@
+[project]
+name = "palette"
+version = "0.1.0"
+description = "Orikalk colour palette"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "coloraide>=8.12",
+]
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.18.0",
+    "ruff>=0.16.4",
+    "rumdl>=0.2.60",
+    "ty>=0.0.74",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "CPY",    # flake8-copyright
+  "D1",     # undocumented-public-*
+  "D203",   # incorrect-blank-line-before-class
+  "D213",   # multi-line-summary-second-line
+  "COM812", # missing-trailing-comma
+  "COM819", # prohibited-trailing-comma
+  "D206",   # docstring-tab-indentation
+  "D300",   # triple-single-quotes
+  "E111",   # indentation-with-invalid-multiple
+  "E114",   # indentation-with-invalid-multiple-comment
+  "E117",   # over-indented
+  "Q000",   # bad-quotes-inline-string
+  "Q001",   # bad-quotes-multiline-string
+  "Q002",   # bad-quotes-docstring
+  "Q003",   # avoidable-escaped-quote
+  "Q004",   # unnecessary-escaped-quote
+  "W191",   # tab-indentation
+]
+
+[tool.ty.terminal]
+error-on-warning = true
+
+[tool.rumdl]
+disable = [
+  "MD013", # line-length
+]
