@@ -1,0 +1,62 @@
+default_install_hook_types = ["pre-commit", "commit-msg"]
+
+[[repos]]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+rev = "v6.0.0"
+hooks = [
+  { id = "check-json" },
+  { id = "end-of-file-fixer" },
+  { id = "trailing-whitespace" },
+]
+
+[[repos]]
+repo = "https://github.com/zizmorcore/zizmor-pre-commit"
+rev = "v1.29.0"
+hooks = [{ id = "zizmor" }]
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "ruff-check"
+name = "ruff check"
+language = "system"
+entry = "uv run ruff check --fix"
+types = ["python"]
+
+[[repos.hooks]]
+id = "ruff-format"
+name = "ruff format"
+language = "system"
+entry = "uv run ruff format"
+types = ["python"]
+
+[[repos.hooks]]
+id = "ty"
+name = "ty"
+language = "system"
+entry = "uv run ty check"
+types = ["python"]
+pass_filenames = false
+
+[[repos.hooks]]
+id = "rumdl"
+name = "rumdl"
+language = "system"
+entry = "uv run rumdl check --fix"
+types = ["markdown"]
+
+[[repos.hooks]]
+id = "commitizen"
+name = "commitizen"
+language = "system"
+entry = "uv run cz check --commit-msg-file"
+stages = ["commit-msg"]
+
+[[repos.hooks]]
+id = "build"
+name = "build"
+language = "system"
+entry = "uv run main.py"
+files = "palette\\.json$|main\\.py$"
+pass_filenames = false
