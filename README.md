@@ -1,8 +1,10 @@
 # Orikalk
 
-A blue and gold colour palette in two flavours, drawing on [Ithya](https://www.blueturtle-design.com/), alchemy and faience.
+Gold on coloured stone. A colour palette drawing on [Ithya](https://www.blueturtle-design.com/), alchemy and faience.
 
-## Roles
+Each theme is named after a stone and tints the backgrounds with its colour, in a dark and a light mode. The gold accent stays the same across all of them.
+
+## Slots
 
 ### Backgrounds
 
@@ -26,36 +28,32 @@ A blue and gold colour palette in two flavours, drawing on [Ithya](https://www.b
 
 | Slot | Use |
 | --- | --- |
+| yellow | highlights, warnings, types |
 | red | errors |
-| yellow | warnings, types |
 | green | success, strings |
 | blue | links, functions |
 | purple | keywords |
 | orange | numbers |
 | cyan | operators |
 
-### Terminal
+Terminal colours are derived from the slots.
 
-| ANSI | Slot |
+## Files
+
+Every [release](https://github.com/orikalk/palette/releases/latest) ships:
+
+| File | What it is |
 | --- | --- |
-| black, white | neutral ramp, by flavour |
-| red, green, yellow, blue | same slot |
-| magenta | pink |
-| cyan | teal |
-
-Bright variants reuse the normal value, except black and white, which step one slot along the neutral ramp.
-
-## Usage
-
-Each [release](https://github.com/orikalk/palette/releases/latest) carries the built formats:
-
-| Use | File |
-| --- | --- |
-| JSON with `order`, `rgb`, `hsl`, `oklch` and `ansiColors` | `palette.json` |
-| CSS custom properties, see [docs/css.md](docs/css.md) | `css/orikalk.css` |
-| Sass variables and map, see [docs/sass.md](docs/sass.md) | `scss/` |
-| Aseprite, GIMP, Inkscape, Krita | `gimp/orikalk-<flavour>.gpl` |
+| `palette.json` | every slot with `order`, `rgb`, `hsl`, `oklch`, plus `ansiColors`, nested theme then mode |
+| `css/orikalk.css` | custom properties, `--<theme>-<mode>-<slot>`, see [docs/css.md](docs/css.md) |
+| `scss/` | one file per mode and a `$palette` map, see [docs/sass.md](docs/sass.md) |
+| `gimp/orikalk-<theme>-<mode>.gpl` | for Aseprite, GIMP, Inkscape, Krita |
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Acknowledgements
+
+- [catppuccin](https://github.com/catppuccin)
+- [Ithya](https://www.blueturtle-design.com/)
