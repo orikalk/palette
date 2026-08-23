@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0](https://github.com/orikalk/palette/compare/v0.1.0...v0.2.0) (2026-08-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* group palette into themes with dark and light modes
+
+### Features
+
+* group palette into themes with dark and light modes ([3b711d0](https://github.com/orikalk/palette/commit/3b711d0dcd42fe62cb8d3ed271fa870bbce5a50b))
+
+
+### Documentation
+
+* rewrite readme ([e2b6131](https://github.com/orikalk/palette/commit/e2b61316991b46aeed3e2a882026c4a12eb9bf48))
+
 ## 0.1.0 (2026-08-23)
 
 
