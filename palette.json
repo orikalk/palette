@@ -1,0 +1,295 @@
+{
+  "version": "0.1.0",
+  "electrum": {
+    "name": "Electrum",
+    "dark": false,
+    "colors": {
+      "salmon": {
+        "name": "Quartz",
+        "hex": "#9c6a52",
+        "accent": true
+      },
+      "coral": {
+        "name": "Coral",
+        "hex": "#c04d36",
+        "accent": true
+      },
+      "pink": {
+        "name": "Rose",
+        "hex": "#7a4478",
+        "accent": true
+      },
+      "purple": {
+        "name": "Amethyst",
+        "hex": "#94578f",
+        "accent": true
+      },
+      "red": {
+        "name": "Cinnabar",
+        "hex": "#b23a28",
+        "accent": true
+      },
+      "maroon": {
+        "name": "Garnet",
+        "hex": "#8f3a4c",
+        "accent": true
+      },
+      "orange": {
+        "name": "Amber",
+        "hex": "#8a6418",
+        "accent": true
+      },
+      "yellow": {
+        "name": "Saffron",
+        "hex": "#a8874a",
+        "accent": true
+      },
+      "green": {
+        "name": "Moss",
+        "hex": "#4c7040",
+        "accent": true
+      },
+      "teal": {
+        "name": "Verdigris",
+        "hex": "#2c707b",
+        "accent": true
+      },
+      "cyan": {
+        "name": "Beryl",
+        "hex": "#3a8791",
+        "accent": true
+      },
+      "sky": {
+        "name": "Azurite",
+        "hex": "#4a6ba8",
+        "accent": true
+      },
+      "blue": {
+        "name": "Lapis",
+        "hex": "#3d5a94",
+        "accent": true
+      },
+      "lavender": {
+        "name": "Iris",
+        "hex": "#5f5a98",
+        "accent": true
+      },
+      "text": {
+        "name": "Text",
+        "hex": "#3a2e22",
+        "accent": false
+      },
+      "subtext1": {
+        "name": "Subtext 1",
+        "hex": "#524033",
+        "accent": false
+      },
+      "subtext0": {
+        "name": "Subtext 0",
+        "hex": "#6b5540",
+        "accent": false
+      },
+      "overlay2": {
+        "name": "Overlay 2",
+        "hex": "#71614c",
+        "accent": false
+      },
+      "overlay1": {
+        "name": "Overlay 1",
+        "hex": "#8f816a",
+        "accent": false
+      },
+      "overlay0": {
+        "name": "Overlay 0",
+        "hex": "#a49781",
+        "accent": false
+      },
+      "surface2": {
+        "name": "Surface 2",
+        "hex": "#b8ab92",
+        "accent": false
+      },
+      "surface1": {
+        "name": "Surface 1",
+        "hex": "#d2c2a2",
+        "accent": false
+      },
+      "surface0": {
+        "name": "Surface 0",
+        "hex": "#d8cbb0",
+        "accent": false
+      },
+      "base": {
+        "name": "Base",
+        "hex": "#e8dfcd",
+        "accent": false
+      },
+      "mantle": {
+        "name": "Mantle",
+        "hex": "#efe6d2",
+        "accent": false
+      },
+      "crust": {
+        "name": "Crust",
+        "hex": "#f3ecdd",
+        "accent": false
+      }
+    },
+    "ansiColors": {
+      "black": { "normal": "#3a2e22", "bright": "#6b5540" },
+      "red": { "normal": "#a83a28", "bright": "#c04d36" },
+      "green": { "normal": "#4c7040", "bright": "#5f8850" },
+      "yellow": { "normal": "#8a6418", "bright": "#a87c2a" },
+      "blue": { "normal": "#35558f", "bright": "#4a6ba8" },
+      "magenta": { "normal": "#7a4478", "bright": "#94578f" },
+      "cyan": { "normal": "#2c6f78", "bright": "#3a8791" },
+      "white": { "normal": "#b8ab92", "bright": "#efe6d2" }
+    }
+  },
+  "lapis": {
+    "name": "Lapis",
+    "dark": true,
+    "colors": {
+      "salmon": {
+        "name": "Quartz",
+        "hex": "#e0a58f",
+        "accent": true
+      },
+      "coral": {
+        "name": "Coral",
+        "hex": "#e8705c",
+        "accent": true
+      },
+      "pink": {
+        "name": "Rose",
+        "hex": "#9a5f9c",
+        "accent": true
+      },
+      "purple": {
+        "name": "Amethyst",
+        "hex": "#bb7fbd",
+        "accent": true
+      },
+      "red": {
+        "name": "Cinnabar",
+        "hex": "#cf4a3c",
+        "accent": true
+      },
+      "maroon": {
+        "name": "Garnet",
+        "hex": "#b95661",
+        "accent": true
+      },
+      "orange": {
+        "name": "Amber",
+        "hex": "#d9a24a",
+        "accent": true
+      },
+      "yellow": {
+        "name": "Saffron",
+        "hex": "#edb45e",
+        "accent": true
+      },
+      "green": {
+        "name": "Moss",
+        "hex": "#6fa05e",
+        "accent": true
+      },
+      "teal": {
+        "name": "Verdigris",
+        "hex": "#52aebd",
+        "accent": true
+      },
+      "cyan": {
+        "name": "Beryl",
+        "hex": "#74cbd8",
+        "accent": true
+      },
+      "sky": {
+        "name": "Azurite",
+        "hex": "#6e97d8",
+        "accent": true
+      },
+      "blue": {
+        "name": "Lapis",
+        "hex": "#4a76b8",
+        "accent": true
+      },
+      "lavender": {
+        "name": "Iris",
+        "hex": "#6d83a8",
+        "accent": true
+      },
+      "text": {
+        "name": "Text",
+        "hex": "#e6dcc4",
+        "accent": false
+      },
+      "subtext1": {
+        "name": "Subtext 1",
+        "hex": "#cfc4a8",
+        "accent": false
+      },
+      "subtext0": {
+        "name": "Subtext 0",
+        "hex": "#b3ab94",
+        "accent": false
+      },
+      "overlay2": {
+        "name": "Overlay 2",
+        "hex": "#8e9196",
+        "accent": false
+      },
+      "overlay1": {
+        "name": "Overlay 1",
+        "hex": "#6a7999",
+        "accent": false
+      },
+      "overlay0": {
+        "name": "Overlay 0",
+        "hex": "#5e6b85",
+        "accent": false
+      },
+      "surface2": {
+        "name": "Surface 2",
+        "hex": "#3d4c6b",
+        "accent": false
+      },
+      "surface1": {
+        "name": "Surface 1",
+        "hex": "#34405a",
+        "accent": false
+      },
+      "surface0": {
+        "name": "Surface 0",
+        "hex": "#2c364b",
+        "accent": false
+      },
+      "base": {
+        "name": "Base",
+        "hex": "#232b3d",
+        "accent": false
+      },
+      "mantle": {
+        "name": "Mantle",
+        "hex": "#1a2130",
+        "accent": false
+      },
+      "crust": {
+        "name": "Crust",
+        "hex": "#0f1420",
+        "accent": false
+      }
+    },
+    "ansiColors": {
+      "black": { "normal": "#2e394f", "bright": "#5e6b85" },
+      "red": { "normal": "#cf4a3c", "bright": "#e8705c" },
+      "green": { "normal": "#6fa05e", "bright": "#8dbd7c" },
+      "yellow": { "normal": "#d9a24a", "bright": "#f0c06a" },
+      "blue": { "normal": "#4a76b8", "bright": "#6e97d8" },
+      "magenta": { "normal": "#9a5f9c", "bright": "#bb7fbd" },
+      "cyan": { "normal": "#52aebd", "bright": "#74cbd8" },
+      "white": { "normal": "#cfc4a8", "bright": "#f2e9d2" }
+    }
+  }
+}
