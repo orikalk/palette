@@ -10,10 +10,10 @@ Then use it:
 
 ```css
 .my-div {
-  color:        var(--lapis-text);
-  background:   rgb(var(--lapis-base-rgb) / 0.9);
-  border-color: hsl(var(--electrum-red-hsl) / 0.75);
+  color:        var(--lapis-dark-text);
+  background:   rgb(var(--lapis-dark-base-rgb) / 0.9);
+  border-color: hsl(var(--lapis-light-red-hsl) / 0.75);
 }
 ```
 
-Every slot exists as `--<flavour>-<slot>` (hex), `--<flavour>-<slot>-rgb` (space separated channels), `--<flavour>-<slot>-hsl` and `--<flavour>-<slot>-oklch`.
+Every slot exists as `--<theme>-<mode>-<slot>` (hex), `--<theme>-<mode>-<slot>-rgb` (space separated channels), `--<theme>-<mode>-<slot>-hsl` and `--<theme>-<mode>-<slot>-oklch`.

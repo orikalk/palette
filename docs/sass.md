@@ -2,18 +2,18 @@
 
 Two ways to use the files from a [release](https://github.com/orikalk/palette/releases/latest).
 
-## Import one flavour
+## Import one mode
 
-`_electrum.scss` and `_lapis.scss` define one variable per slot, namespaced by `@use`.
+`_<theme>-<mode>.scss` files such as `_lapis-dark.scss` define one variable per slot, namespaced by `@use`.
 
 Input:
 
 ```scss
-@use "lapis";
+@use "lapis-dark";
 
 .my-lapis-class {
-  background: lapis.$base;
-  color: lapis.$text;
+  background: lapis-dark.$base;
+  color: lapis-dark.$text;
 }
 ```
 
@@ -28,7 +28,7 @@ Output:
 
 ## Import the single map
 
-`_orikalk.scss` defines `$palette`, a map of flavour to slot map. Quote slot names when reading the map.
+`_orikalk.scss` defines `$palette`, a map of `<theme>-<mode>` to slot map. Quote slot names when reading the map.
 
 Input:
 
@@ -36,8 +36,8 @@ Input:
 @use "sass:map";
 @use "orikalk";
 
-@each $flavour, $color in orikalk.$palette {
-  .my-#{$flavour}-class {
+@each $mode, $color in orikalk.$palette {
+  .my-#{$mode}-class {
     background: #{map.get($color, "base")};
     color: #{map.get($color, "blue")};
   }
@@ -47,13 +47,13 @@ Input:
 Output:
 
 ```css
-.my-electrum-class {
-  background: #e8dfcd;
-  color: #3d5a94;
-}
-
-.my-lapis-class {
+.my-lapis-dark-class {
   background: #232b3d;
   color: #4a76b8;
+}
+
+.my-lapis-light-class {
+  background: #e8dfcd;
+  color: #3d5a94;
 }
 ```

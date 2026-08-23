@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
 
 type ColorEntry = dict[str, Any]
-type Flavor = dict[str, Any]
+type Mode = dict[str, Any]
+type Theme = dict[str, Any]
 
 # published slot order: 14 accents, then the neutral ramp from text down to crust
 ORDER = [
@@ -93,7 +94,7 @@ def color(*, name: str, hex_value: str, accent: bool, order: int) -> ColorEntry:
     }
 
 
-def build_flavor(*, src: dict, order: int) -> Flavor:
+def build_mode(*, src: dict, dark: bool) -> Mode:
     colors = {}
     for index, slot in enumerate(ORDER):
         colors[slot] = color(
@@ -105,7 +106,6 @@ def build_flavor(*, src: dict, order: int) -> Flavor:
 
     # terminal black and white sit one step in from text and base so they stay readable,
     # bright is one step further out
-    dark = src["dark"]
     if dark:
         neutral = {
             "black": ("surface1", "surface2"),
@@ -134,20 +134,30 @@ def build_flavor(*, src: dict, order: int) -> Flavor:
             "bright": bright_color,
         }
 
+    return {"colors": colors, "ansiColors": ansi}
+
+
+def build_theme(*, src: dict, order: int) -> Theme:
     return {
         "name": src["name"],
         "order": order,
-        "dark": dark,
-        "colors": colors,
-        "ansiColors": ansi,
+        "dark": build_mode(src=src["dark"], dark=True),
+        "light": build_mode(src=src["light"], dark=False),
     }
 
 
-def css(*, flavors: dict[str, Flavor]) -> str:
+def flatten(*, themes: dict[str, Theme]) -> dict[str, Mode]:
+    # one entry per theme and mode, keyed <theme>-<mode>, for the flat text formats
+    return {
+        f"{key}-{mode}": theme[mode] for key, theme in themes.items() for mode in ("dark", "light")
+    }
+
+
+def css(*, modes: dict[str, Mode]) -> str:
     out = []
-    for key, flavor in flavors.items():
+    for key, mode in modes.items():
         lines = []
-        for slot, colour in flavor["colors"].items():
+        for slot, colour in mode["colors"].items():
             rgb_value, hsl_value, oklch_value = colour["rgb"], colour["hsl"], colour["oklch"]
             lines.append(f"  --{key}-{slot}: {colour['hex']};")
             lines.append(
@@ -165,37 +175,37 @@ def css(*, flavors: dict[str, Flavor]) -> str:
     return "\n\n".join(out) + "\n"
 
 
-def scss_flavor(*, flavor: Flavor) -> str:
+def scss_mode(*, mode: Mode) -> str:
     lines = []
-    for slot, colour in flavor["colors"].items():
+    for slot, colour in mode["colors"].items():
         lines.append(f"${slot}: {colour['hex']};")
     return "\n".join(lines) + "\n"
 
 
-def scss_map(*, flavors: dict[str, Flavor]) -> str:
+def scss_map(*, modes: dict[str, Mode]) -> str:
     blocks = []
-    for key, flavor in flavors.items():
+    for key, mode in modes.items():
         colors = []
-        for slot, colour in flavor["colors"].items():
+        for slot, colour in mode["colors"].items():
             colors.append(f'    "{slot}": {colour["hex"]}')
         blocks.append(f'  "{key}": (\n' + ",\n".join(colors) + "\n  )")
     return "$palette: (\n" + ",\n".join(blocks) + "\n);\n"
 
 
-def gpl(*, flavor: Flavor) -> str:
+def gpl(*, name: str, mode: Mode) -> str:
     # 14 columns puts the accents on the first row and the neutrals on the second
-    lines = ["GIMP Palette", f"Name: Orikalk {flavor['name']}", "Columns: 14"]
-    for colour in flavor["colors"].values():
+    lines = ["GIMP Palette", f"Name: Orikalk {name}", "Columns: 14"]
+    for colour in mode["colors"].values():
         rgb_value = colour["rgb"]
         lines.append(f"{rgb_value['r']:3} {rgb_value['g']:3} {rgb_value['b']:3} {colour['name']}")
     return "\n".join(lines) + "\n"
 
 
-def contrast_failures(*, flavors: dict[str, Flavor]) -> list[str]:
+def contrast_failures(*, modes: dict[str, Mode]) -> list[str]:
     failures = []
-    for key, flavor in flavors.items():
-        base = Color(flavor["colors"]["base"]["hex"])
-        for slot, colour in flavor["colors"].items():
+    for key, mode in modes.items():
+        base = Color(mode["colors"]["base"]["hex"])
+        for slot, colour in mode["colors"].items():
             if colour["accent"]:
                 floor = CONTRAST["accent"]
             elif slot == "text":
@@ -212,12 +222,13 @@ def contrast_failures(*, flavors: dict[str, Flavor]) -> list[str]:
 
 def main() -> None:
     src = json.loads((ROOT / "palette.json").read_text())
-    flavors = {}
+    themes = {}
     for key in src:
         if key != "version":
-            flavors[key] = build_flavor(src=src[key], order=len(flavors))
+            themes[key] = build_theme(src=src[key], order=len(themes))
+    modes = flatten(themes=themes)
 
-    failures = contrast_failures(flavors=flavors)
+    failures = contrast_failures(modes=modes)
     if failures:
         raise SystemExit("\n".join(failures))
 
@@ -225,13 +236,16 @@ def main() -> None:
     for sub in ("css", "scss", "gimp"):
         (DIST / sub).mkdir(parents=True)
     (DIST / "palette.json").write_text(
-        json.dumps({"version": src["version"], **flavors}, indent=2) + "\n"
+        json.dumps({"version": src["version"], **themes}, indent=2) + "\n"
     )
-    (DIST / "css" / "orikalk.css").write_text(css(flavors=flavors))
-    (DIST / "scss" / "_orikalk.scss").write_text(scss_map(flavors=flavors))
-    for key, flavor in flavors.items():
-        (DIST / "scss" / f"_{key}.scss").write_text(scss_flavor(flavor=flavor))
-        (DIST / "gimp" / f"orikalk-{key}.gpl").write_text(gpl(flavor=flavor))
+    (DIST / "css" / "orikalk.css").write_text(css(modes=modes))
+    (DIST / "scss" / "_orikalk.scss").write_text(scss_map(modes=modes))
+    for key, theme in themes.items():
+        for mode in ("dark", "light"):
+            (DIST / "scss" / f"_{key}-{mode}.scss").write_text(scss_mode(mode=theme[mode]))
+            (DIST / "gimp" / f"orikalk-{key}-{mode}.gpl").write_text(
+                gpl(name=f"{theme['name']} {mode.capitalize()}", mode=theme[mode])
+            )
 
 
 if __name__ == "__main__":
