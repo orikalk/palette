@@ -22,32 +22,8 @@ def rgb(*, colour: Color) -> dict[str, int]:
     return out
 
 
-def hsl(*, colour: Color) -> dict[str, float]:
-    converted = colour.convert("hsl")
-    return {
-        "h": round(converted["hue"], 3),
-        "s": round(converted["saturation"], 3),
-        "l": round(converted["lightness"], 3),
-    }
-
-
-def oklch(*, colour: Color) -> dict[str, float]:
-    converted = colour.convert("oklch")
-    return {
-        "l": round(converted["lightness"], 4),
-        "c": round(converted["chroma"], 4),
-        "h": round(converted["hue"], 4),
-    }
-
-
 def swatch(*, hex_value: str) -> dict[str, Any]:
-    colour = Color(hex_value)
-    return {
-        "hex": hex_value,
-        "rgb": rgb(colour=colour),
-        "hsl": hsl(colour=colour),
-        "oklch": oklch(colour=colour),
-    }
+    return {"hex": hex_value, "rgb": rgb(colour=Color(hex_value))}
 
 
 def color(*, name: str, hex_value: str) -> ColorEntry:
@@ -102,9 +78,6 @@ def main() -> None:
 
     shutil.rmtree(DIST, ignore_errors=True)
     (DIST / "gimp").mkdir(parents=True)
-    (DIST / "palette.json").write_text(
-        json.dumps({"version": src["version"], **themes}, indent=2) + "\n"
-    )
     for key, theme in themes.items():
         for mode in ("dark", "light"):
             (DIST / "gimp" / f"orikalk-{key}-{mode}.gpl").write_text(

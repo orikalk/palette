@@ -44,7 +44,6 @@ Every [release](https://github.com/orikalk/palette/releases/latest) ships:
 
 | File | What it is |
 | --- | --- |
-| `palette.json` | every slot with `order`, `rgb`, `hsl`, `oklch`, plus `ansiColors`, nested theme then mode |
 | `gimp/orikalk-<theme>-<mode>.gpl` | for Aseprite, GIMP, Inkscape, Krita |
 
 ## Contributing
