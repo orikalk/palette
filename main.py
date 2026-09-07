@@ -153,45 +153,6 @@ def flatten(*, themes: dict[str, Theme]) -> dict[str, Mode]:
     }
 
 
-def css(*, modes: dict[str, Mode]) -> str:
-    out = []
-    for key, mode in modes.items():
-        lines = []
-        for slot, colour in mode["colors"].items():
-            rgb_value, hsl_value, oklch_value = colour["rgb"], colour["hsl"], colour["oklch"]
-            lines.append(f"  --{key}-{slot}: {colour['hex']};")
-            lines.append(
-                f"  --{key}-{slot}-rgb: {rgb_value['r']} {rgb_value['g']} {rgb_value['b']};"
-            )
-            lines.append(
-                f"  --{key}-{slot}-hsl: {hsl_value['h']} "
-                f"{hsl_value['s'] * 100:.1f}% {hsl_value['l'] * 100:.1f}%;"
-            )
-            lines.append(
-                f"  --{key}-{slot}-oklch: {oklch_value['l']} {oklch_value['c']} {oklch_value['h']};"
-            )
-
-        out.append(":root {\n" + "\n".join(lines) + "\n}")
-    return "\n\n".join(out) + "\n"
-
-
-def scss_mode(*, mode: Mode) -> str:
-    lines = []
-    for slot, colour in mode["colors"].items():
-        lines.append(f"${slot}: {colour['hex']};")
-    return "\n".join(lines) + "\n"
-
-
-def scss_map(*, modes: dict[str, Mode]) -> str:
-    blocks = []
-    for key, mode in modes.items():
-        colors = []
-        for slot, colour in mode["colors"].items():
-            colors.append(f'    "{slot}": {colour["hex"]}')
-        blocks.append(f'  "{key}": (\n' + ",\n".join(colors) + "\n  )")
-    return "$palette: (\n" + ",\n".join(blocks) + "\n);\n"
-
-
 def gpl(*, name: str, mode: Mode) -> str:
     # 14 columns puts the accents on the first row and the neutrals on the second
     lines = ["GIMP Palette", f"Name: Orikalk {name}", "Columns: 14"]
@@ -233,16 +194,12 @@ def main() -> None:
         raise SystemExit("\n".join(failures))
 
     shutil.rmtree(DIST, ignore_errors=True)
-    for sub in ("css", "scss", "gimp"):
-        (DIST / sub).mkdir(parents=True)
+    (DIST / "gimp").mkdir(parents=True)
     (DIST / "palette.json").write_text(
         json.dumps({"version": src["version"], **themes}, indent=2) + "\n"
     )
-    (DIST / "css" / "orikalk.css").write_text(css(modes=modes))
-    (DIST / "scss" / "_orikalk.scss").write_text(scss_map(modes=modes))
     for key, theme in themes.items():
         for mode in ("dark", "light"):
-            (DIST / "scss" / f"_{key}-{mode}.scss").write_text(scss_mode(mode=theme[mode]))
             (DIST / "gimp" / f"orikalk-{key}-{mode}.gpl").write_text(
                 gpl(name=f"{theme['name']} {mode.capitalize()}", mode=theme[mode])
             )

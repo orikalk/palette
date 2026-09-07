@@ -39,6 +39,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ needs.release-please.outputs.tag_name }}
         run: |
-          (cd dist && zip -r ../orikalk.zip .)
-          tar czf orikalk.tar.gz -C dist .
+          (cd dist && zip -r ../orikalk.zip gimp palette.json)
+          tar czf orikalk.tar.gz -C dist gimp palette.json
           gh release upload "$TAG" orikalk.zip orikalk.tar.gz --clobber
