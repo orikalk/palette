@@ -55,6 +55,15 @@ def build_mode(*, src: dict) -> Mode:
     return {"name": src["name"], "colors": colors, "ansiColors": ansi}
 
 
+def flat_slots(*, mode: Mode) -> dict[str, ColorEntry]:
+    out = dict(mode["colors"])
+    for name, entry in mode["ansiColors"].items():
+        out[f"ansi-{name}"] = entry["normal"]
+    for name, entry in mode["ansiColors"].items():
+        out[f"ansi-bright-{name}"] = entry["bright"]
+    return out
+
+
 def build_theme(*, src: dict) -> Theme:
     return {
         "name": src["name"],
@@ -65,9 +74,8 @@ def build_theme(*, src: dict) -> Theme:
 
 
 def gpl(*, name: str, mode: Mode) -> str:
-    # 7 columns puts the accents on the first row and the neutrals on the second
-    lines = ["GIMP Palette", f"Name: Orikalk {name}", "Columns: 7"]
-    for colour in mode["colors"].values():
+    lines = ["GIMP Palette", f"Name: Orikalk {name}", "Columns: 8"]
+    for colour in flat_slots(mode=mode).values():
         rgb_value = colour["rgb"]
         lines.append(f"{rgb_value['r']:3} {rgb_value['g']:3} {rgb_value['b']:3} {colour['name']}")
     return "\n".join(lines) + "\n"
