@@ -99,6 +99,112 @@
           "hex": "#0f1420",
           "accent": false
         }
+      },
+      "ansiColors": {
+        "black": {
+          "name": "Black",
+          "normal": {
+            "name": "Black",
+            "hex": "#34405a",
+            "code": 0
+          },
+          "bright": {
+            "name": "Bright Black",
+            "hex": "#3d4c6b",
+            "code": 8
+          }
+        },
+        "red": {
+          "name": "Red",
+          "normal": {
+            "name": "Red",
+            "hex": "#f18e86",
+            "code": 1
+          },
+          "bright": {
+            "name": "Bright Red",
+            "hex": "#f18e86",
+            "code": 9
+          }
+        },
+        "green": {
+          "name": "Green",
+          "normal": {
+            "name": "Green",
+            "hex": "#7eb976",
+            "code": 2
+          },
+          "bright": {
+            "name": "Bright Green",
+            "hex": "#7eb976",
+            "code": 10
+          }
+        },
+        "yellow": {
+          "name": "Yellow",
+          "normal": {
+            "name": "Yellow",
+            "hex": "#e6be8a",
+            "code": 3
+          },
+          "bright": {
+            "name": "Bright Yellow",
+            "hex": "#e6be8a",
+            "code": 11
+          }
+        },
+        "blue": {
+          "name": "Blue",
+          "normal": {
+            "name": "Blue",
+            "hex": "#6db3e4",
+            "code": 4
+          },
+          "bright": {
+            "name": "Bright Blue",
+            "hex": "#6db3e4",
+            "code": 12
+          }
+        },
+        "magenta": {
+          "name": "Magenta",
+          "normal": {
+            "name": "Magenta",
+            "hex": "#c19edb",
+            "code": 5
+          },
+          "bright": {
+            "name": "Bright Magenta",
+            "hex": "#c19edb",
+            "code": 13
+          }
+        },
+        "cyan": {
+          "name": "Cyan",
+          "normal": {
+            "name": "Cyan",
+            "hex": "#60bab7",
+            "code": 6
+          },
+          "bright": {
+            "name": "Bright Cyan",
+            "hex": "#60bab7",
+            "code": 14
+          }
+        },
+        "white": {
+          "name": "White",
+          "normal": {
+            "name": "White",
+            "hex": "#b3ab94",
+            "code": 7
+          },
+          "bright": {
+            "name": "Bright White",
+            "hex": "#cfc4a8",
+            "code": 15
+          }
+        }
       }
     },
     "light": {
@@ -197,6 +303,112 @@
           "name": "Crust",
           "hex": "#f3ecdd",
           "accent": false
+        }
+      },
+      "ansiColors": {
+        "black": {
+          "name": "Black",
+          "normal": {
+            "name": "Black",
+            "hex": "#524033",
+            "code": 0
+          },
+          "bright": {
+            "name": "Bright Black",
+            "hex": "#6b5540",
+            "code": 8
+          }
+        },
+        "red": {
+          "name": "Red",
+          "normal": {
+            "name": "Red",
+            "hex": "#b3544f",
+            "code": 1
+          },
+          "bright": {
+            "name": "Bright Red",
+            "hex": "#b3544f",
+            "code": 9
+          }
+        },
+        "green": {
+          "name": "Green",
+          "normal": {
+            "name": "Green",
+            "hex": "#538032",
+            "code": 2
+          },
+          "bright": {
+            "name": "Bright Green",
+            "hex": "#538032",
+            "code": 10
+          }
+        },
+        "yellow": {
+          "name": "Yellow",
+          "normal": {
+            "name": "Yellow",
+            "hex": "#926f34",
+            "code": 3
+          },
+          "bright": {
+            "name": "Bright Yellow",
+            "hex": "#926f34",
+            "code": 11
+          }
+        },
+        "blue": {
+          "name": "Blue",
+          "normal": {
+            "name": "Blue",
+            "hex": "#4275a6",
+            "code": 4
+          },
+          "bright": {
+            "name": "Bright Blue",
+            "hex": "#4275a6",
+            "code": 12
+          }
+        },
+        "magenta": {
+          "name": "Magenta",
+          "normal": {
+            "name": "Magenta",
+            "hex": "#81619b",
+            "code": 5
+          },
+          "bright": {
+            "name": "Bright Magenta",
+            "hex": "#81619b",
+            "code": 13
+          }
+        },
+        "cyan": {
+          "name": "Cyan",
+          "normal": {
+            "name": "Cyan",
+            "hex": "#008282",
+            "code": 6
+          },
+          "bright": {
+            "name": "Bright Cyan",
+            "hex": "#008282",
+            "code": 14
+          }
+        },
+        "white": {
+          "name": "White",
+          "normal": {
+            "name": "White",
+            "hex": "#b8ab92",
+            "code": 7
+          },
+          "bright": {
+            "name": "Bright White",
+            "hex": "#d2c2a2",
+            "code": 15
+          }
         }
       }
     }

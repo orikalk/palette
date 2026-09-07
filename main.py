@@ -39,14 +39,6 @@ ORDER = [
 CONTRAST = {"accent": 3.0, "text": 7.0}
 
 ANSI = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
-ANSI_SLOTS = {
-    "red": "red",
-    "green": "green",
-    "yellow": "gold",
-    "blue": "blue",
-    "magenta": "purple",
-    "cyan": "cyan",
-}
 
 
 def rgb(*, colour: Color) -> dict[str, int]:
@@ -74,20 +66,21 @@ def oklch(*, colour: Color) -> dict[str, float]:
     }
 
 
-def color(*, name: str, hex_value: str, accent: bool, order: int) -> ColorEntry:
+def swatch(*, hex_value: str) -> dict[str, Any]:
     colour = Color(hex_value)
     return {
-        "name": name,
-        "order": order,
         "hex": hex_value,
         "rgb": rgb(colour=colour),
         "hsl": hsl(colour=colour),
         "oklch": oklch(colour=colour),
-        "accent": accent,
     }
 
 
-def build_mode(*, src: dict, dark: bool) -> Mode:
+def color(*, name: str, hex_value: str, accent: bool, order: int) -> ColorEntry:
+    return {"name": name, "order": order, **swatch(hex_value=hex_value), "accent": accent}
+
+
+def build_mode(*, src: dict) -> Mode:
     colors = {}
     for index, slot in enumerate(ORDER):
         colors[slot] = color(
@@ -97,34 +90,22 @@ def build_mode(*, src: dict, dark: bool) -> Mode:
             order=index,
         )
 
-    # terminal black and white sit one step in from text and base so they stay readable,
-    # bright is one step further out
-    if dark:
-        neutral = {
-            "black": ("surface1", "surface2"),
-            "white": ("subtext0", "subtext1"),
-        }
-    else:
-        neutral = {
-            "black": ("subtext1", "subtext0"),
-            "white": ("surface2", "surface1"),
-        }
-
     ansi = {}
     for index, name in enumerate(ANSI):
-        # accents have no lightened bright variant, bright reuses normal on purpose
-        normal, bright = neutral.get(name) or (ANSI_SLOTS[name],) * 2
-        normal_color = {"code": index}
-        bright_color = {"code": index + 8}
-        for field in ("hex", "rgb", "hsl", "oklch"):
-            normal_color[field] = colors[normal][field]
-            bright_color[field] = colors[bright][field]
-
+        entry = src["ansiColors"][name]
         ansi[name] = {
-            "name": name.capitalize(),
+            "name": entry["name"],
             "order": index,
-            "normal": normal_color,
-            "bright": bright_color,
+            "normal": {
+                "name": entry["normal"]["name"],
+                "code": entry["normal"]["code"],
+                **swatch(hex_value=entry["normal"]["hex"]),
+            },
+            "bright": {
+                "name": entry["bright"]["name"],
+                "code": entry["bright"]["code"],
+                **swatch(hex_value=entry["bright"]["hex"]),
+            },
         }
 
     return {"colors": colors, "ansiColors": ansi}
@@ -134,8 +115,8 @@ def build_theme(*, src: dict, order: int) -> Theme:
     return {
         "name": src["name"],
         "order": order,
-        "dark": build_mode(src=src["dark"], dark=True),
-        "light": build_mode(src=src["light"], dark=False),
+        "dark": build_mode(src=src["dark"]),
+        "light": build_mode(src=src["light"]),
     }
 
 
