@@ -2,7 +2,9 @@
   "version": "0.2.0",
   "lapis": {
     "name": "Lapis",
+    "stone": "blue",
     "dark": {
+      "name": "Lapis Dark",
       "colors": {
         "gold": {
           "name": "Gold",
@@ -189,6 +191,7 @@
       }
     },
     "light": {
+      "name": "Lapis Light",
       "colors": {
         "gold": {
           "name": "Gold",

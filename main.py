@@ -52,12 +52,13 @@ def build_mode(*, src: dict) -> Mode:
             },
         }
 
-    return {"colors": colors, "ansiColors": ansi}
+    return {"name": src["name"], "colors": colors, "ansiColors": ansi}
 
 
 def build_theme(*, src: dict) -> Theme:
     return {
         "name": src["name"],
+        "stone": src["stone"],
         "dark": build_mode(src=src["dark"]),
         "light": build_mode(src=src["light"]),
     }
