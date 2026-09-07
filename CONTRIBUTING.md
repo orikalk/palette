@@ -29,6 +29,4 @@ Conventional Commits, subject line only: `type: subject`, lowercase, imperative.
 
 ## Releases
 
-Releases are automated with release-please. Each push to `master` updates a release pull request from the commits since the last tag. Merging it bumps `version` in `pyproject.toml` and `palette.json`, updates `CHANGELOG.md`, tags, and publishes a GitHub release with `orikalk.zip` and `orikalk.tar.gz`.
-
-The repository setting "Allow GitHub Actions to create and approve pull requests" must be on. The default token cannot trigger workflows, so the check workflow does not run on the release pull request unless a `RELEASE_PLEASE_TOKEN` repository secret holds a fine-grained PAT with contents and pull requests write access.
+Releases are automated with release-please. Each push to master updates a release pull request from the commits since the last tag. Merging it bumps `version` in `pyproject.toml` and `palette.json`, updates `CHANGELOG.md`, tags, and publishes a GitHub release with `orikalk.zip` and `orikalk.tar.gz`.
