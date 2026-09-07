@@ -6,98 +6,79 @@
       "colors": {
         "gold": {
           "name": "Gold",
-          "hex": "#e6be8a",
-          "accent": true
+          "hex": "#e6be8a"
         },
         "red": {
           "name": "Red",
-          "hex": "#f18e86",
-          "accent": true
+          "hex": "#f18e86"
         },
         "orange": {
           "name": "Orange",
-          "hex": "#e7957f",
-          "accent": true
+          "hex": "#e7957f"
         },
         "green": {
           "name": "Green",
-          "hex": "#7eb976",
-          "accent": true
+          "hex": "#7eb976"
         },
         "cyan": {
           "name": "Cyan",
-          "hex": "#60bab7",
-          "accent": true
+          "hex": "#60bab7"
         },
         "blue": {
           "name": "Blue",
-          "hex": "#6db3e4",
-          "accent": true
+          "hex": "#6db3e4"
         },
         "purple": {
           "name": "Purple",
-          "hex": "#c19edb",
-          "accent": true
+          "hex": "#c19edb"
         },
         "text": {
           "name": "Text",
-          "hex": "#e6dcc4",
-          "accent": false
+          "hex": "#e6dcc4"
         },
         "subtext1": {
           "name": "Subtext 1",
-          "hex": "#cfc4a8",
-          "accent": false
+          "hex": "#cfc4a8"
         },
         "subtext0": {
           "name": "Subtext 0",
-          "hex": "#b3ab94",
-          "accent": false
+          "hex": "#b3ab94"
         },
         "overlay2": {
           "name": "Overlay 2",
-          "hex": "#8e9196",
-          "accent": false
+          "hex": "#8e9196"
         },
         "overlay1": {
           "name": "Overlay 1",
-          "hex": "#6a7999",
-          "accent": false
+          "hex": "#6a7999"
         },
         "overlay0": {
           "name": "Overlay 0",
-          "hex": "#5e6b85",
-          "accent": false
+          "hex": "#5e6b85"
         },
         "surface2": {
           "name": "Surface 2",
-          "hex": "#3d4c6b",
-          "accent": false
+          "hex": "#3d4c6b"
         },
         "surface1": {
           "name": "Surface 1",
-          "hex": "#34405a",
-          "accent": false
+          "hex": "#34405a"
         },
         "surface0": {
           "name": "Surface 0",
-          "hex": "#2c364b",
-          "accent": false
+          "hex": "#2c364b"
         },
         "base": {
           "name": "Base",
-          "hex": "#232b3d",
-          "accent": false
+          "hex": "#232b3d"
         },
         "mantle": {
           "name": "Mantle",
-          "hex": "#1a2130",
-          "accent": false
+          "hex": "#1a2130"
         },
         "crust": {
           "name": "Crust",
-          "hex": "#0f1420",
-          "accent": false
+          "hex": "#0f1420"
         }
       },
       "ansiColors": {
@@ -211,98 +192,79 @@
       "colors": {
         "gold": {
           "name": "Gold",
-          "hex": "#926f34",
-          "accent": true
+          "hex": "#926f34"
         },
         "red": {
           "name": "Red",
-          "hex": "#b3544f",
-          "accent": true
+          "hex": "#b3544f"
         },
         "orange": {
           "name": "Orange",
-          "hex": "#a95d39",
-          "accent": true
+          "hex": "#a95d39"
         },
         "green": {
           "name": "Green",
-          "hex": "#538032",
-          "accent": true
+          "hex": "#538032"
         },
         "cyan": {
           "name": "Cyan",
-          "hex": "#008282",
-          "accent": true
+          "hex": "#008282"
         },
         "blue": {
           "name": "Blue",
-          "hex": "#4275a6",
-          "accent": true
+          "hex": "#4275a6"
         },
         "purple": {
           "name": "Purple",
-          "hex": "#81619b",
-          "accent": true
+          "hex": "#81619b"
         },
         "text": {
           "name": "Text",
-          "hex": "#3a2e22",
-          "accent": false
+          "hex": "#3a2e22"
         },
         "subtext1": {
           "name": "Subtext 1",
-          "hex": "#524033",
-          "accent": false
+          "hex": "#524033"
         },
         "subtext0": {
           "name": "Subtext 0",
-          "hex": "#6b5540",
-          "accent": false
+          "hex": "#6b5540"
         },
         "overlay2": {
           "name": "Overlay 2",
-          "hex": "#71614c",
-          "accent": false
+          "hex": "#71614c"
         },
         "overlay1": {
           "name": "Overlay 1",
-          "hex": "#8f816a",
-          "accent": false
+          "hex": "#8f816a"
         },
         "overlay0": {
           "name": "Overlay 0",
-          "hex": "#a49781",
-          "accent": false
+          "hex": "#a49781"
         },
         "surface2": {
           "name": "Surface 2",
-          "hex": "#b8ab92",
-          "accent": false
+          "hex": "#b8ab92"
         },
         "surface1": {
           "name": "Surface 1",
-          "hex": "#d2c2a2",
-          "accent": false
+          "hex": "#d2c2a2"
         },
         "surface0": {
           "name": "Surface 0",
-          "hex": "#d8cbb0",
-          "accent": false
+          "hex": "#d8cbb0"
         },
         "base": {
           "name": "Base",
-          "hex": "#e8dfcd",
-          "accent": false
+          "hex": "#e8dfcd"
         },
         "mantle": {
           "name": "Mantle",
-          "hex": "#efe6d2",
-          "accent": false
+          "hex": "#efe6d2"
         },
         "crust": {
           "name": "Crust",
-          "hex": "#f3ecdd",
-          "accent": false
+          "hex": "#f3ecdd"
         }
       },
       "ansiColors": {

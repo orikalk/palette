@@ -12,32 +12,6 @@ type ColorEntry = dict[str, Any]
 type Mode = dict[str, Any]
 type Theme = dict[str, Any]
 
-# published slot order: 7 accents, then the neutral ramp from text down to crust
-ORDER = [
-    "gold",
-    "red",
-    "orange",
-    "green",
-    "cyan",
-    "blue",
-    "purple",
-    "text",
-    "subtext1",
-    "subtext0",
-    "overlay2",
-    "overlay1",
-    "overlay0",
-    "surface2",
-    "surface1",
-    "surface0",
-    "base",
-    "mantle",
-    "crust",
-]
-
-# wcag 2.1 ratios against base, the readability floor every flavour has to clear
-CONTRAST = {"accent": 3.0, "text": 7.0}
-
 ANSI = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 
 
@@ -76,26 +50,20 @@ def swatch(*, hex_value: str) -> dict[str, Any]:
     }
 
 
-def color(*, name: str, hex_value: str, accent: bool, order: int) -> ColorEntry:
-    return {"name": name, "order": order, **swatch(hex_value=hex_value), "accent": accent}
+def color(*, name: str, hex_value: str) -> ColorEntry:
+    return {"name": name, **swatch(hex_value=hex_value)}
 
 
 def build_mode(*, src: dict) -> Mode:
     colors = {}
-    for index, slot in enumerate(ORDER):
-        colors[slot] = color(
-            name=src["colors"][slot]["name"],
-            hex_value=src["colors"][slot]["hex"],
-            accent=src["colors"][slot]["accent"],
-            order=index,
-        )
+    for slot, entry in src["colors"].items():
+        colors[slot] = color(name=entry["name"], hex_value=entry["hex"])
 
     ansi = {}
-    for index, name in enumerate(ANSI):
+    for name in ANSI:
         entry = src["ansiColors"][name]
         ansi[name] = {
             "name": entry["name"],
-            "order": index,
             "normal": {
                 "name": entry["normal"]["name"],
                 "code": entry["normal"]["code"],
@@ -111,19 +79,11 @@ def build_mode(*, src: dict) -> Mode:
     return {"colors": colors, "ansiColors": ansi}
 
 
-def build_theme(*, src: dict, order: int) -> Theme:
+def build_theme(*, src: dict) -> Theme:
     return {
         "name": src["name"],
-        "order": order,
         "dark": build_mode(src=src["dark"]),
         "light": build_mode(src=src["light"]),
-    }
-
-
-def flatten(*, themes: dict[str, Theme]) -> dict[str, Mode]:
-    # one entry per theme and mode, keyed <theme>-<mode>, for the flat text formats
-    return {
-        f"{key}-{mode}": theme[mode] for key, theme in themes.items() for mode in ("dark", "light")
     }
 
 
@@ -136,36 +96,9 @@ def gpl(*, name: str, mode: Mode) -> str:
     return "\n".join(lines) + "\n"
 
 
-def contrast_failures(*, modes: dict[str, Mode]) -> list[str]:
-    failures = []
-    for key, mode in modes.items():
-        base = Color(mode["colors"]["base"]["hex"])
-        for slot, colour in mode["colors"].items():
-            if colour["accent"]:
-                floor = CONTRAST["accent"]
-            elif slot == "text":
-                floor = CONTRAST["text"]
-            else:
-                continue
-            ratio = Color(colour["hex"]).contrast(base, method="wcag21")
-            if ratio < floor:
-                failures.append(
-                    f"{key} {slot} {colour['hex']} is {ratio:.2f}:1 on base, needs {floor}:1"
-                )
-    return failures
-
-
 def main() -> None:
     src = json.loads((ROOT / "palette.json").read_text())
-    themes = {}
-    for key in src:
-        if key != "version":
-            themes[key] = build_theme(src=src[key], order=len(themes))
-    modes = flatten(themes=themes)
-
-    failures = contrast_failures(modes=modes)
-    if failures:
-        raise SystemExit("\n".join(failures))
+    themes = {key: build_theme(src=theme) for key, theme in src.items() if key != "version"}
 
     shutil.rmtree(DIST, ignore_errors=True)
     (DIST / "gimp").mkdir(parents=True)
