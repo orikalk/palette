@@ -12,22 +12,15 @@ type ColorEntry = dict[str, Any]
 type Mode = dict[str, Any]
 type Theme = dict[str, Any]
 
-# published slot order: 14 accents, then the neutral ramp from text down to crust
+# published slot order: 7 accents, then the neutral ramp from text down to crust
 ORDER = [
-    "salmon",
-    "coral",
-    "pink",
-    "purple",
+    "gold",
     "red",
-    "maroon",
     "orange",
-    "yellow",
     "green",
-    "teal",
     "cyan",
-    "sky",
     "blue",
-    "lavender",
+    "purple",
     "text",
     "subtext1",
     "subtext0",
@@ -49,10 +42,10 @@ ANSI = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 ANSI_SLOTS = {
     "red": "red",
     "green": "green",
-    "yellow": "yellow",
+    "yellow": "gold",
     "blue": "blue",
-    "magenta": "pink",
-    "cyan": "teal",
+    "magenta": "purple",
+    "cyan": "cyan",
 }
 
 
@@ -154,8 +147,8 @@ def flatten(*, themes: dict[str, Theme]) -> dict[str, Mode]:
 
 
 def gpl(*, name: str, mode: Mode) -> str:
-    # 14 columns puts the accents on the first row and the neutrals on the second
-    lines = ["GIMP Palette", f"Name: Orikalk {name}", "Columns: 14"]
+    # 7 columns puts the accents on the first row and the neutrals on the second
+    lines = ["GIMP Palette", f"Name: Orikalk {name}", "Columns: 7"]
     for colour in mode["colors"].values():
         rgb_value = colour["rgb"]
         lines.append(f"{rgb_value['r']:3} {rgb_value['g']:3} {rgb_value['b']:3} {colour['name']}")

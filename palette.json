@@ -4,74 +4,39 @@
     "name": "Lapis",
     "dark": {
       "colors": {
-        "salmon": {
-          "name": "Quartz",
-          "hex": "#e0a58f",
-          "accent": true
-        },
-        "coral": {
-          "name": "Coral",
-          "hex": "#e8705c",
-          "accent": true
-        },
-        "pink": {
-          "name": "Rose",
-          "hex": "#9a5f9c",
-          "accent": true
-        },
-        "purple": {
-          "name": "Amethyst",
-          "hex": "#bb7fbd",
+        "gold": {
+          "name": "Gold",
+          "hex": "#e6be8a",
           "accent": true
         },
         "red": {
-          "name": "Cinnabar",
-          "hex": "#cf4a3c",
-          "accent": true
-        },
-        "maroon": {
-          "name": "Garnet",
-          "hex": "#b95661",
+          "name": "Red",
+          "hex": "#f18e86",
           "accent": true
         },
         "orange": {
-          "name": "Amber",
-          "hex": "#d9a24a",
-          "accent": true
-        },
-        "yellow": {
-          "name": "Saffron",
-          "hex": "#edb45e",
+          "name": "Orange",
+          "hex": "#e7957f",
           "accent": true
         },
         "green": {
-          "name": "Moss",
-          "hex": "#6fa05e",
-          "accent": true
-        },
-        "teal": {
-          "name": "Verdigris",
-          "hex": "#52aebd",
+          "name": "Green",
+          "hex": "#7eb976",
           "accent": true
         },
         "cyan": {
-          "name": "Beryl",
-          "hex": "#74cbd8",
-          "accent": true
-        },
-        "sky": {
-          "name": "Azurite",
-          "hex": "#6e97d8",
+          "name": "Cyan",
+          "hex": "#60bab7",
           "accent": true
         },
         "blue": {
-          "name": "Lapis",
-          "hex": "#4a76b8",
+          "name": "Blue",
+          "hex": "#6db3e4",
           "accent": true
         },
-        "lavender": {
-          "name": "Iris",
-          "hex": "#6d83a8",
+        "purple": {
+          "name": "Purple",
+          "hex": "#c19edb",
           "accent": true
         },
         "text": {
@@ -138,74 +103,39 @@
     },
     "light": {
       "colors": {
-        "salmon": {
-          "name": "Quartz",
-          "hex": "#9c6a52",
-          "accent": true
-        },
-        "coral": {
-          "name": "Coral",
-          "hex": "#c04d36",
-          "accent": true
-        },
-        "pink": {
-          "name": "Rose",
-          "hex": "#7a4478",
-          "accent": true
-        },
-        "purple": {
-          "name": "Amethyst",
-          "hex": "#94578f",
+        "gold": {
+          "name": "Gold",
+          "hex": "#926f34",
           "accent": true
         },
         "red": {
-          "name": "Cinnabar",
-          "hex": "#b23a28",
-          "accent": true
-        },
-        "maroon": {
-          "name": "Garnet",
-          "hex": "#8f3a4c",
+          "name": "Red",
+          "hex": "#b3544f",
           "accent": true
         },
         "orange": {
-          "name": "Amber",
-          "hex": "#8a6418",
-          "accent": true
-        },
-        "yellow": {
-          "name": "Saffron",
-          "hex": "#98783b",
+          "name": "Orange",
+          "hex": "#a95d39",
           "accent": true
         },
         "green": {
-          "name": "Moss",
-          "hex": "#4c7040",
-          "accent": true
-        },
-        "teal": {
-          "name": "Verdigris",
-          "hex": "#2c707b",
+          "name": "Green",
+          "hex": "#538032",
           "accent": true
         },
         "cyan": {
-          "name": "Beryl",
-          "hex": "#3a8791",
-          "accent": true
-        },
-        "sky": {
-          "name": "Azurite",
-          "hex": "#4a6ba8",
+          "name": "Cyan",
+          "hex": "#008282",
           "accent": true
         },
         "blue": {
-          "name": "Lapis",
-          "hex": "#3d5a94",
+          "name": "Blue",
+          "hex": "#4275a6",
           "accent": true
         },
-        "lavender": {
-          "name": "Iris",
-          "hex": "#5f5a98",
+        "purple": {
+          "name": "Purple",
+          "hex": "#81619b",
           "accent": true
         },
         "text": {

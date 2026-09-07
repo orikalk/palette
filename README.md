@@ -28,7 +28,7 @@ Each theme is named after a stone and tints the backgrounds with its colour, in 
 
 | Slot | Use |
 | --- | --- |
-| yellow | highlights, warnings, types |
+| gold | highlights, warnings, types |
 | red | errors |
 | green | success, strings |
 | blue | links, functions |
