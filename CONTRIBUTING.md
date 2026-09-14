@@ -13,15 +13,18 @@ prek install
 
 ## Changing colours
 
-Colours live in `palette.json` and nowhere else. Edit a hex there, then rebuild:
+Colours live in `palette.json` and nowhere else. Edit a hex there, then check and rebuild:
 
 ```sh
-uv run main.py
+uv run main.py check
+uv run main.py build
 ```
+
+The neutral ramp and the ANSI colours are derived from the anchor slot (crust in dark, base in light) by the deltas in `RAMP`, `ANSI_ALIASES`, `ANSI_MAP` and `LIFT` in `main.py`. `check` compares `palette.json` against them and prints the expected hex for every slot that disagrees. After changing an anchor, run it and paste the expected values in.
 
 ## Checks
 
-`prek run --all-files` runs json, whitespace, zizmor, ruff, ty, rumdl and the build. It also runs on commit once installed.
+`prek run --all-files` runs json, whitespace, zizmor, ruff, ty, rumdl and the palette check. It also runs on commit once installed.
 
 ## Commits
 
