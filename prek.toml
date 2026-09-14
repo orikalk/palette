@@ -58,6 +58,6 @@ stages = ["commit-msg"]
 id = "build"
 name = "build"
 language = "system"
-entry = "uv run main.py"
+entry = "uv run main.py build"
 files = "palette\\.json$|main\\.py$"
 pass_filenames = false
