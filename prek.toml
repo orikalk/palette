@@ -55,6 +55,14 @@ entry = "uv run cz check --commit-msg-file"
 stages = ["commit-msg"]
 
 [[repos.hooks]]
+id = "check"
+name = "check"
+language = "system"
+entry = "uv run main.py check"
+files = "palette\\.json$|main\\.py$"
+pass_filenames = false
+
+[[repos.hooks]]
 id = "build"
 name = "build"
 language = "system"
