@@ -92,7 +92,8 @@ def ramp(*, mode_key: str, anchor_hex: str) -> dict[str, str]:
     out = {}
     for slot, deltas in RAMP[mode_key].items():
         coords = [anchor[c] + d for c, d in zip(channels, deltas, strict=True)]
-        out[slot] = Color("oklch", coords).fit("srgb").convert("srgb").to_string(hex=True)
+        colour = Color("oklch", coords).fit("srgb", method="oklch-chroma")
+        out[slot] = colour.convert("srgb").to_string(hex=True)
     return out
 
 
