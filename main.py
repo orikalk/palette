@@ -8,6 +8,7 @@ from coloraide import Color
 
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
+PALETTE = ROOT / "palette.json"
 
 ANCHOR = {"dark": "crust", "light": "base"}
 
@@ -59,8 +60,8 @@ ANSI_MAP = {
 LIFT = 0.04
 
 
-def build(*, path: Path) -> None:
-    src = json.loads(path.read_bytes())
+def build() -> None:
+    src = json.loads(PALETTE.read_bytes())
     out = DIST / "gimp"
     shutil.rmtree(DIST, ignore_errors=True)
     out.mkdir(parents=True)
@@ -121,8 +122,8 @@ def actual(*, mode: dict) -> dict[str, str]:
     return out
 
 
-def check(*, path: Path) -> None:
-    src = json.loads(path.read_bytes())
+def check() -> None:
+    src = json.loads(PALETTE.read_bytes())
     errors = []
     for key, theme in src.items():
         if key == "version":
@@ -144,9 +145,9 @@ def main() -> None:
     sub.add_parser("check")
     args = parser.parse_args()
     if args.command == "build":
-        build(path=ROOT / "palette.json")
+        build()
     elif args.command == "check":
-        check(path=ROOT / "palette.json")
+        check()
 
 
 if __name__ == "__main__":
