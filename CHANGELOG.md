@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.3.0](https://github.com/orikalk/palette/compare/v0.2.0...v0.3.0) (2026-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* cut accents to seven hues around gold
+
+### Features
+
+* add derive command for the neutral ramp ([6fd4b1d](https://github.com/orikalk/palette/commit/6fd4b1d60da1324d3411fd029e541553d3ebb01c))
+* add stone and mode names ([03abe85](https://github.com/orikalk/palette/commit/03abe850edae57d94731a1fa4836aa30571680dd))
+* cut accents to seven hues around gold ([8e629e1](https://github.com/orikalk/palette/commit/8e629e1d66400ca48996c3e7bbcf543ea81d6416))
+* derive lapis from its crust ([5e60857](https://github.com/orikalk/palette/commit/5e6085764bfc641db937343f50cec13cd9f8fc90))
+* list ansi colours in gpl files ([03b5cd8](https://github.com/orikalk/palette/commit/03b5cd86e7c083132bdc4061232eacbf43fa7948))
+
+
+### Documentation
+
+* add missing full stop to readme ([84bed79](https://github.com/orikalk/palette/commit/84bed79d4812e50f34dee64e9866023a2dcf610c))
+* describe check flow ([f59d80f](https://github.com/orikalk/palette/commit/f59d80faade7b51420394d1acabc4d3f29421e70))
+* drop pat setup from contributing ([0fd312e](https://github.com/orikalk/palette/commit/0fd312e63466144cd24d60ad6d2662aba81339c6))
+* point changelog at rewritten commits ([7e964e2](https://github.com/orikalk/palette/commit/7e964e2eefab122af59723ac2514d2a3e9ad712a))
+* rewrite readme intro ([9159c0d](https://github.com/orikalk/palette/commit/9159c0d19af7267ad476070b5abcf45feb3c271d))
+
 ## [0.2.0](https://github.com/orikalk/palette/compare/v0.1.0...v0.2.0) (2026-08-23)
 
 
