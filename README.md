@@ -2,7 +2,7 @@
 
 Orikalk was born as a rice for my NixOS setup. At the same time, I was reading about alchemy in history, and I had just discovered the artist [Blue Turtle](https://www.blueturtle-design.com/). The two together shaped the palette.
 
-The name is taken from orichalcum, an old metal that shines like gold. Gold is the small accent that stays the same in all the themes. Every theme takes its name from a stone, and this stone sets the colour of the dark background. The light background is always parchment, with the stone used as accent
+The name is taken from orichalcum, an old metal that shines like gold. Gold is the small accent that stays the same in all the themes. Every theme takes its name from a stone, and this stone sets the colour of the dark background. The light background is always parchment, with the stone used as accent.
 
 Every theme exists in both dark and light mode.
 
