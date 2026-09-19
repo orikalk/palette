@@ -11,6 +11,11 @@
           "type": "json",
           "path": "palette.json",
           "jsonpath": "$.version"
+        },
+        {
+          "type": "toml",
+          "path": "uv.lock",
+          "jsonpath": "$.package[?(@.name=='palette')].version"
         }
       ]
     }
